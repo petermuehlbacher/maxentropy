@@ -6,7 +6,7 @@ Examples can be found in [this Colab notebook](https://colab.research.google.com
 ## About the implementation
 Amongst those distributions that satisfy some given constraints on moments and/or other expectations, we want to find the distribution that maximises entropy. (If you are not sure why, check out [Wikipedia](https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution) or [Brian Keng](https://bjlkeng.github.io/posts/maximum-entropy-distributions/)'s introduction.)
 
-That is, for (not necessarily finite $a<b$) we want to maximise the entropy
+That is, for (not necessarily finite \(a<b\)) we want to maximise the entropy
 $$S(̱̱p)=-\int_a^b p(x)\ln(p(x))dx,$$
 subject to $\int_a^b p(x)dx=1$ and $\int_a^b f_i(x)p(x)dx=c_i$ for some finite number of constraints $(f_i,c_i)$.
 This is accomplished by pretending that $dx>0$ is some very small number, approximating the integral with a finite sum, ending up with only a finite number of variables $p(x)$, and solving the resulting problem with Lagrange multipliers, i.e.:
@@ -31,7 +31,7 @@ Roughly in order of importance (i.e. my personal interest):
 * Use [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) to speed up the minimisation process.
 * Try to integrate this with Metaculus/Guesstimate/Elicit/…
 
-## Further reading:
+## Further reading
 * https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution
 * https://bjlkeng.github.io/posts/maximum-entropy-distributions/ : A great exposition for those with no statistical mechanics background.
 * https://fragile-credences.github.io/quantiles/ (app: https://makedistribution.com/). Lists alternatives to this approach, mostly by prescribing quantiles and finding the closest (in some sense) member of a given family of distributions such as normal/log-normal/metalog to the given requirements.
